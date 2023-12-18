@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yüz Tanıma Sonuçları</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='result_style.css') }}">
+</head>
+<body>
+    <h1>Yüz Tanıma Sonuçları</h1>
+
+    <p>Toplam {{ faces_count }} yüz tespit edildi.</p>
+
+    <h2>Detect Edilen Yüzler</h2>
+    <div class="face-container">
+        {% for face_image in face_images %}
+<img src="{{ url_for('getOutput', process_name=process_name, file_name_output=face_image) }}" alt="Face Image">
+        {% endfor %}
+    </div>
+
+</body>
+</html>
